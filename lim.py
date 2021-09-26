@@ -1,7 +1,9 @@
+from sys import argv
+
 import numpy as np
 from numpy import linalg as la
 
-N = 50
+N = int(argv[1])
 
 # We are guessing that the limit of the Perron-Frobenius
 #   eigenvalues is sqrt(2).
@@ -20,4 +22,4 @@ for i in range(1, N):
     
     # spectral radius
     r = np.amax(np.absolute(la.eigvals(a)))
-    print("{}:".format(i), r, "(error: {})".format(guess - r))
+    print("{}:".format(i), r, "(error: {})".format(abs(guess - r)))
